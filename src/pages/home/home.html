@@ -1,14 +1,54 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+    <ion-navbar>
+      <ion-title>
+        myWeather
+      </ion-title>
+    </ion-navbar>
+   </ion-header>
+   
+   <ion-content padding class="img">
+    <ion-item style="background-color: transparent">
+      {{date * 1000 | date}}
+    </ion-item>
+      <ion-item>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+          <ion-label style="background-color: transparent">city</ion-label>
+          <ion-select [(ngModel)]="city" (ionChange)='getWeather($event)'>
+            <ion-option value="johannesburg">Johannesburg</ion-option>
+            <ion-option value="tembisa">Tembisa</ion-option>
+            <ion-option value="pretoria">Pretoria</ion-option>
+            <ion-option value="polokwane">Polokwane</ion-option>
+            <ion-option value="tzaneen">Tzaneen</ion-option>
+            <ion-option value="giyani">Giyani</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <h2 class="location">{{city}}</h2>
+        <ion-item>
+            <strong>Main Weather: </strong>{{main}}
+            <ion-icon name="sunny" item-left></ion-icon>
+        </ion-item>
+        <h2 class="description">{{description}}</h2>
+        <h2 class="temperature">{{Temp}}&deg;</h2>
+
+
+           <ion-list>
+              
+            <ion-item style="background-color: transparent">
+                  <strong>Humidity:</strong>{{humidity}}%
+                </ion-item>
+              <ion-item style="background-color: transparent">
+                <strong>Temp:</strong>{{Temp}}&deg;
+              </ion-item>
+              <ion-item style="background-color: transparent">
+                <strong>Description:</strong>{{description}}
+              </ion-item>
+                <ion-item style="background-color: transparent">
+                    <strong>Wind:</strong>{{wind}}km/h
+                  </ion-item>
+                  
+           </ion-list>
+        
+        
+      
+    </ion-content>
